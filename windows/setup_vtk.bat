@@ -5,7 +5,7 @@ SET initcwd=%cd%
 SET scriptpath=%~dp0
 cd %scriptpath:~0,-1%
 
-set vtk_version=9.0.1
+set vtk_version=8.2.0
 set visual_studio_version="Visual Studio 15 2017 Win64"
 set qt_path=C:\Qt\5.14.2\msvc2017_64
 

@@ -10,8 +10,8 @@
 - qhull v8.0.2
 - vtk v9.0.1 (with QT v5.14.2)
 - zlib v1.2.11
-- pcl v1.8.1
+- pcl v1.8.1 (depends on all previous being setup first)
 
 ### Manual
 - CMake 3+
-- QT 5.14.2 (expects install x64 mscv2014 @ "C:\Qt\5.14.2\msvc2017_64")
+- Qt v5.14.2 (expects Qt x64 mscv2014 installed at "C:\Qt\5.14.2\msvc2017_64")
