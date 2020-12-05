@@ -7,6 +7,7 @@ cd %scriptpath:~0,-1%
 
 set rtabmap_version=0.20.3
 set visual_studio_version="Visual Studio 15 2017 Win64"
+set "visual_studio_vc_path=%programfiles(x86)%\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build"
 set opencv_path=%scriptpath:~0,-1%\opencv\build
 set cuda_path=%scriptpath:~0,-1%\cuda
 set pcl_path=%scriptpath:~0,-1%\pcl\install\cmake
@@ -17,6 +18,8 @@ set vtk_path=%scriptpath:~0,-1%\VTK\install\lib\cmake\vtk-9.0
 set qhull_path=%scriptpath:~0,-1%\qhull\install
 set zlib_path=%scriptpath:~0,-1%\zlib-1.2.11\install
 set openni_path=%scriptpath:~0,-1%\openni
+
+call "%visual_studio_vc_path%\vcvars64.bat"
 
 set "pcl_path=%pcl_path:\=/%"
 set "opencv_path=%opencv_path:\=/%"
@@ -60,8 +63,8 @@ cmake -G %visual_studio_version% ^
     -D CMAKE_INSTALL_PREFIX=%install_folder% ..
 
 :: install pcl release
-@REM cd %build_folder%
-@REM cmake --build . --config Release --target install --parallel 6 -j 6
+cd %build_folder%
+cmake --build . --config Release --target install --parallel 6 -j 6
 
 :: reset working directory
 cd %initcwd%
