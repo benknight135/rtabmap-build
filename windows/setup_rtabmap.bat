@@ -66,6 +66,29 @@ cmake -G %visual_studio_version% ^
 cd %build_folder%
 cmake --build . --config Release --target install --parallel 6 -j 6
 
+cd ..
+
+set "pcl_path=%pcl_path:/=\%"
+set "opencv_path=%opencv_path:/=\%"
+set "cuda_path=%cuda_path:/=\%"
+set "boost_path=%boost_path:/=\%"
+set "eigen_path=%eigen_path:/=\%"
+set "flann_path=%flann_path:/=\%"
+set "vtk_path=%vtk_path:/=\%"
+set "qhull_path=%qhull_path:/=\%"
+set "zlib_path=%zlib_path:/=\%"
+set "openni_path=%openni_path:/=\%"
+
+:: copy dlls to rtabmap bin
+set rtabmap_path=%scriptpath:~0,-1%\rtabmap
+copy %opencv_path%\x64\vc15\bin\opencv_img_hash450.dll %rtabmap_path%\bin
+copy %opencv_path%\x64\vc15\bin\opencv_videoio_ffmpeg450_64.dll %rtabmap_path%\bin
+copy %opencv_path%\x64\vc15\bin\opencv_world450.dll %rtabmap_path%\bin
+copy %pcl_path%\..\bin\*.dll %rtabmap_path%\bin
+copy %vtk_path%\..\..\..\bin\*.dll %rtabmap_path%\bin
+copy %vtk_path%\..\..\..\plugins\designer\*.dll %rtabmap_path%\bin
+copy %zlib_path%\bin\*.dll %rtabmap_path%\bin
+
 :: reset working directory
 cd %initcwd%
 
