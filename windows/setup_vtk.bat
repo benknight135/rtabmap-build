@@ -31,6 +31,8 @@ cmake -G %visual_studio_version% ^
     -D CMAKE_INSTALL_PREFIX=%install_folder% ^
     -D VTK_QT_VERSION=5 ^
     -D BUILD_SHARED_LIBS=ON ^
+    -D BUILD_TESTING=OFF ^
+    -D VTK_Group_Qt=ON ^
     -D VTK_GROUP_ENABLE_Qt=YES ^
     -D CMAKE_PREFIX_PATH=%qt_path% ..
 

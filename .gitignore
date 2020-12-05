@@ -9,3 +9,6 @@
 /windows/flann
 /windows/eigen
 /windows/qhull
+/windows/boost_1_74_0
+/windows/rtabmap
+!/windows/cuda/INSTALL_CUDA_TOOLKIT_HERE

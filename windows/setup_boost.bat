@@ -6,7 +6,7 @@ SET initcwd=%cd%
 SET scriptpath=%~dp0
 cd %scriptpath:~0,-1%
 
-set boost_version=1.66.0
+set boost_version=1.74.0
 SET "boost_version_=%boost_version:.=_%"
 
 :: set default option values
@@ -56,7 +56,7 @@ SET downloadpath=%downloadfolder%\%downloadfile%
 
 if "%option_clean%"=="true" (
     echo Cleaning directory...
-    rmdir /Q /S boost_1_66_0
+    rmdir /Q /S boost_%boost_version_%
     del boost_%boost_version_%
 )
 
