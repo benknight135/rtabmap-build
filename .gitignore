@@ -2,3 +2,10 @@
 /windows/opencv
 /windows/zlib-1.2.11
 /windows/VTK
+/windows/openni
+/windows/boost_1_66_0
+/windows/pcl
+/windows/VTK
+/windows/flann
+/windows/eigen
+/windows/qhull

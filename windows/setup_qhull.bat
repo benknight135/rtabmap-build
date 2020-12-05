@@ -5,37 +5,32 @@ SET initcwd=%cd%
 SET scriptpath=%~dp0
 cd %scriptpath:~0,-1%
 
-set vtk_version=9.0.1
+set qhull_version=8.0.2
 set visual_studio_version="Visual Studio 15 2017 Win64"
 set qt_path=C:\Qt\5.14.2\msvc2017_64
 
-:: download vtk repo
-git clone https://github.com/Kitware/VTK.git
+:: download qhull repo
+git clone https://github.com/qhull/qhull.git
 
-:: checkout specific vtk version
-cd VTK
-git checkout tags/v%vtk_version%
+:: checkout specific qhull version
+cd qhull
+git checkout tags/v%qhull_version%
 
 :: clean build folder
-set build_folder=%scriptpath:~0,-1%\VTK\build
-set install_folder=%scriptpath:~0,-1%\VTK\install
+set build_folder=%scriptpath:~0,-1%\qhull\build
+set install_folder=%scriptpath:~0,-1%\qhull\install
 :: create build folder
 mkdir %build_folder%
 mkdir %install_folder%
 
-:: build vtk release
+:: build qhull release
 cd %build_folder%
 
 cmake -G %visual_studio_version% ^
     -D CMAKE_BUILD_TYPE=RELEASE ^
-    -D CMAKE_INSTALL_PREFIX=%install_folder% ^
-    -D VTK_QT_VERSION=5 ^
-    -D BUILD_SHARED_LIBS=ON ^
-    -D VTK_GROUP_ENABLE_Qt=YES ^
-    -D VTK_USE_CUDA=ON ^
-    -D CMAKE_PREFIX_PATH=%qt_path% ..
+    -D CMAKE_INSTALL_PREFIX=%install_folder% ..
 
-:: install vtk release
+:: install qhull release
 cd %build_folder%
 cmake --build . --config Release --target install --parallel 6 -j 6
 
