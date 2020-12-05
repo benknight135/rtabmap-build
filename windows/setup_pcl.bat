@@ -12,6 +12,8 @@ set eigen_path=%scriptpath:~0,-1%\eigen
 set flann_path=%scriptpath:~0,-1%\flann\install
 set vtk_path=%scriptpath:~0,-1%\VTK\install
 set qhull_path=%scriptpath:~0,-1%\qhull\install
+set zlib_path=%scriptpath:~0,-1%\zlib-1.2.11\install
+set openni_path=%scriptpath:~0,-1%\openni
 
 :: download opencv repo
 git clone https://github.com/PointCloudLibrary/pcl.git
@@ -34,16 +36,15 @@ cmake -G %visual_studio_version% ^
     -D CMAKE_BUILD_TYPE=RELEASE ^
     -D Boost_INCLUDE_DIR=%boost_path% ^
     -D EIGEN_INCLUDE_DIR=%eigen_path% ^
-    -D VTK_DIR=%vtk_path% ^
-    -D QHULL_INCLUDE_DIR=%qhull_path%\include ^
-    -D QHULL_LIBRARY=%qhull_path%\lib ^
-    -D FLANN_INCLUDE_DIR=%flann_path%\include ^
-    -D FLANN_LIBRARY=%flann_path%\lib ^
+    -D VTK_DIR=%vtk_path%\lib\cmake\vtk-9.0 ^
+    -D ZLIB_ROOT=%zlib_path% ^
+    -D QHULL_ROOT=%qhull_path% ^
+    -D FLANN_ROOT=%flann_path% ^
     -D CMAKE_INSTALL_PREFIX=%install_folder% ..
 
 :: install pcl release
-@REM cd %build_folder%
-@REM cmake --build . --config Release --target install --parallel 6 -j 6
+cd %build_folder%
+cmake --build . --config Release --target install --parallel 6 -j 6
 
 :: reset working directory
 cd %initcwd%

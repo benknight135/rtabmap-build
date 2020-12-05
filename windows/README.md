@@ -10,6 +10,7 @@
 - qhull v8.0.2
 - vtk v9.0.1 (with QT v5.14.2)
 - zlib v1.2.11
+- pcl v1.8.1
 
 ### Manual
 - CMake 3+

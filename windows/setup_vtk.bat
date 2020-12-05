@@ -32,7 +32,6 @@ cmake -G %visual_studio_version% ^
     -D VTK_QT_VERSION=5 ^
     -D BUILD_SHARED_LIBS=ON ^
     -D VTK_GROUP_ENABLE_Qt=YES ^
-    -D VTK_USE_CUDA=ON ^
     -D CMAKE_PREFIX_PATH=%qt_path% ..
 
 :: install vtk release
