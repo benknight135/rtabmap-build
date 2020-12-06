@@ -1,5 +1,5 @@
 # RTABMAP Windows Build
-Helpful scripts for building RTAB-Map and it's 3rdparty dependencies.
+Helpful scripts for building RTAB-Map and it's 3rdparty dependencies on Windows (x64).
 
 ## Instructions
 The automated scripts in this repository expect the following to already be installed:
