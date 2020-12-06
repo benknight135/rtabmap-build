@@ -7,3 +7,4 @@ call setup_zlib.bat
 call setup_boost.bat
 call setup_vtk.bat
 call setup_pcl.bat
+call setup_rtabmap.bat

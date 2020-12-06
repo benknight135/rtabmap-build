@@ -1,4 +1,4 @@
-/windows/cuda
+/windows/cuda/*
 /windows/opencv
 /windows/zlib-1.2.11
 /windows/VTK
